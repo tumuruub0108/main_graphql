@@ -1,0 +1,72 @@
+type Site {
+  id: ID!
+  createdAt: DateTime!
+  name: String!
+  abbreviation: String!
+  description: String!
+  country: String!
+  state: String!
+  city: String!
+  district: String!
+  address: String
+  zipCode: String!
+  location: String
+  picture: String
+  email: String!
+  phone: String!
+  type: SiteType!
+  laboratoryType: SiteLaboratoryType!
+  status: SiteStatus!
+  employees: [SiteEmployee]
+  studies: [Study]
+  monitors: [SponsorEmployee]
+}
+
+input CreateSiteInput {
+  name: String!
+  abbreviation: String!
+  description: String!
+  country: String!
+  state: String!
+  city: String!
+  district: String!
+  address: String
+  zipCode: String!
+  location: String
+  picture: String
+  email: String!
+  phone: String!
+  type: SiteType!
+  laboratoryType: SiteLaboratoryType!
+  status: SiteStatus!
+}
+
+input UpdateSiteInput {
+  name: String
+  abbreviation: String
+  description: String
+  country: String
+  state: String
+  city: String
+  district: String
+  address: String
+  zipCode: String
+  location: String
+  picture: String
+  email: String
+  phone: String
+  type: SiteType
+  laboratoryType: SiteLaboratoryType
+  status: SiteStatus
+}
+
+type Query {
+  listSite: [Site]!
+  getSite(id: ID!): Site!
+}
+
+type Mutation {
+  createSite(input: CreateSiteInput!): SuccessResponse!
+  updateSite(id: ID!, input: UpdateSiteInput!): SuccessResponse!
+  deleteSite(id: ID!): SuccessResponse!
+}

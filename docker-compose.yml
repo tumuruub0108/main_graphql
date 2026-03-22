@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  user-service:
+    build: ./user-service
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - PORT=8081
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - ${PWD}/data/db:/var/lib/postgresql/data

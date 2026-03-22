@@ -1,0 +1,38 @@
+type Study {
+  id: ID!
+  createdAt: DateTime!
+  name: String!
+  class: String!
+  subClass: String!
+  protocolId: String!
+  sponsorId: String!
+  sponsor: Sponsor
+  sites: [Site!]
+}
+
+input CreateStudyInput {
+  name: String!
+  class: String!
+  subClass: String!
+  protocolId: String!
+  sponsorId: String!
+}
+
+input UpdateStudyInput {
+  name: String
+  class: String
+  subClass: String
+  protocolId: String
+  sponsorId: String
+}
+
+type Query {
+  listStudy: [Study!]!
+  getStudy(id: ID!): Study!
+}
+
+type Mutation {
+  createStudy(input: CreateStudyInput!): SuccessResponse!
+  updateStudy(id: ID!, input: UpdateStudyInput!): SuccessResponse!
+  deleteStudy(id: ID!): SuccessResponse!
+}
