@@ -27,7 +27,7 @@ enum AcademicDegree {
   Doctor   @map("doctor")
 }
 
-model User {
+model Employee {
   id             Int            @id @default(autoincrement())
   email          String         @unique
   firstName      String
@@ -40,14 +40,13 @@ model User {
   academicDegree AcademicDegree @default(Bachelor)
   createdAt      DateTime       @default(now())
 
-  @@map("User")
+  @@map("employees")
 }
 
-model Lesson {
+model Work {
   id        String   @id
   createdAt DateTime @default(now())
   name      String
-  class     String
 
-  @@map("lessons")
+  @@map("works")
 }
