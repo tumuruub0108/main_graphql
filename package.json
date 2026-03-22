@@ -14,7 +14,7 @@
     "lint:fix": "eslint --fix 'src/**/*'",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
-    "prepare": "husky install",
+    "prepare": "husky",
     "check:all": "yarn tsc --noEmit && yarn format && yarn lint"
   },
   "dependencies": {

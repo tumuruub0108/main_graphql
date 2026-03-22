@@ -1,14 +1,15 @@
-import type { ZodFormattedError } from 'zod';
+import type { ZodError } from 'zod';
 
-export const formatErrors = (errors: ZodFormattedError<Map<string, string>, string>) =>
-  Object.entries(errors)
-    .map(([name, value]) => {
-      if (value && '_errors' in value) {
-        return `${name}: ${value._errors.join(', ')}`;
-      }
-      return '';
+export const formatErrors = (error: ZodError) => {
+  const flattened = error.flatten((issue) => issue.message);
+
+  // flattened.fieldErrors is a Record<string, string[] | undefined>
+  return Object.entries(flattened.fieldErrors)
+    .map(([name, messages]) => {
+      return messages ? `${name}: ${messages}` : '';
     })
     .filter(Boolean);
+};
 
 export const queryString = <T extends Record<string, unknown>>(query: T) =>
   new URLSearchParams(
