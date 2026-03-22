@@ -1,0 +1,13 @@
+type Employee {
+  id: Int!
+  email: String!
+  firstName: String!
+  lastName: String!
+  registrationId: String!
+  homeAddress: String!
+  phone: String!
+  gender: Gender    
+  role: UserRole
+  academicDegree: AcademicDegree
+  createdAt: DateTime!
+}

@@ -10,65 +10,21 @@ enum Gender {
   Female
   Other
 }
-enum SystemStatus {
-  Available
-  DoNotDisturb
-  BeRightBack
-  Offline
+
+
+enum UserRole {
+  Admin   
+  Manager 
+  Employee
 }
 
-enum AccountStatus {
-  Active
-  Inactive
-}
-enum SponsorEmployeeRole {
-  Monitor
-  ClinicalPathologist
-}
-enum SiteType {
-  Hospital
-  ResearchInstitute
-}
-enum SiteLaboratoryType {
-  CentralLab
-  LocalLab
-  WithoutLab
-}
-enum SiteStatus {
-  Active
-  Inactive
-}
-enum SponsorType {
-  PharmaceuticalIndustry
-  ResearchInstitution
-  University
-}
-enum SiteEmployeeRole {
-  PrincipalInvestigator
-  ClinicalResearchCoordinator
-  PhysicianResearchAssistant
-  ClinicalPathologist
-  LaboratoryScientist
-  LaboratoryTechnician
-  LaboratorySampleCollector
-  ImageUploader
-  ImageUploaderAndReader
-  Accountant
-}
 enum AcademicDegree {
   Bachelor
-  Master
-  Doctor
+  Master   
+  Doctor 
 }
-enum SiteEmployeeType {
-  Employee
-  ContractWorker
-}
-enum WorkingStatus {
-  Working
-  NotWorking
-  InVacation
-}
+
+
 
 type Query
 type Mutation
