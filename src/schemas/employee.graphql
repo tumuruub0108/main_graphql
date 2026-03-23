@@ -11,3 +11,39 @@ type Employee {
   academicDegree: AcademicDegree
   createdAt: DateTime!
 }
+
+input CreateEmployeeInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  registrationId: String!
+  homeAddress: String!
+  phone: String!
+  gender: Gender
+  role: UserRole
+  academicDegree: AcademicDegree
+}
+
+input UpdateEmployeeInput {
+  email: String
+  firstName: String
+  lastName: String
+  registrationId: String
+  homeAddress: String
+  phone: String
+  gender: Gender
+  role: UserRole
+  academicDegree: AcademicDegree
+}
+
+
+type Query {
+  listEmployee: [Employee]!
+  getEmployee(id: Int!): Employee!
+}
+
+type Mutation {
+  createEmployee(input: CreateEmployeeInput!): SuccessResponse!
+  updateEmployee(id: Int!, input: UpdateEmployeeInput!): SuccessResponse!
+  deleteSiteEmployee(id: Int!): SuccessResponse!
+}
