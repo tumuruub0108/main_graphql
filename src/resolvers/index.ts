@@ -1,28 +1,30 @@
 import { DateResolver, DateTimeResolver, VoidResolver } from 'graphql-scalars';
 import type { Context } from '$/types';
 import type { Resolvers } from '$/types/generated';
-import siteEmployee from './siteEmployee';
-import createSiteEmployee from './siteEmployee/mutations/createSiteEmployee';
-import deleteSiteEmployee from './siteEmployee/mutations/deleteSiteEmployee';
-import updateSiteEmployee from './siteEmployee/mutations/updateSiteEmployee';
-import getSiteEmployee from './siteEmployee/queries/getSiteEmployee';
-import listSiteEmployee from './siteEmployee/queries/listSiteEmployee';
+import employee from './employee';
 
+
+import createEmployee from './employee/mutations/createEmployee'
+import deleteEmployee from './employee/mutations/deleteEmployee'
+import updateEmployee from './employee/mutations/updateEmployee'
+import getEmployee from './employee/queries/getEmployee';
+import listEmployee from './employee/queries/listEmployee';
 
 const resolvers: Resolvers<Context> = {
   Void: VoidResolver,
   Date: DateResolver,
   DateTime: DateTimeResolver,
   Query: {
-    listSiteEmployee: listSiteEmployee,
-    getSiteEmployee: getSiteEmployee,
+    listEmployee: listEmployee,
+    getEmployee: getEmployee,
   },
   Mutation: {
-    createSiteEmployee: createSiteEmployee,
-    deleteSiteEmployee: deleteSiteEmployee,
-    updateSiteEmployee: updateSiteEmployee,
+    createEmployee: createEmployee,
+    deleteEmployee: deleteEmployee,
+    updateEmployee: updateEmployee,
   },
-  SiteEmployee: siteEmployee,
+
+  Employee: employee
 };
 
 export default resolvers;

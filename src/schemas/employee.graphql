@@ -4,11 +4,11 @@ type Employee {
   firstName: String!
   lastName: String!
   registrationId: String!
-  homeAddress: String!
+  homeAddress: String       
   phone: String!
-  gender: Gender    
-  role: UserRole
-  academicDegree: AcademicDegree
+  gender: Gender!         
+  role: UserRole!           
+  academicDegree: AcademicDegree! 
   createdAt: DateTime!
 }
 
@@ -38,12 +38,12 @@ input UpdateEmployeeInput {
 
 
 type Query {
-  listEmployee: [Employee]!
+  listEmployee: [Employee!]!
   getEmployee(id: Int!): Employee!
 }
 
 type Mutation {
   createEmployee(input: CreateEmployeeInput!): SuccessResponse!
   updateEmployee(id: Int!, input: UpdateEmployeeInput!): SuccessResponse!
-  deleteSiteEmployee(id: Int!): SuccessResponse!
+  deleteEmployee(id: Int!): SuccessResponse!
 }

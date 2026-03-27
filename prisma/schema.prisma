@@ -34,7 +34,7 @@ model Employee {
   firstName      String
   lastName       String
   registrationId String
-  homeAddress    String?
+  homeAddress    String
   phone          String
   gender         Gender         @default(Other)
   role           UserRole       @default(Employee)
@@ -44,11 +44,10 @@ model Employee {
   @@map("employees")
 }
 
-model Lesson {
+model Work {
   id        String   @id
   createdAt DateTime @default(now())
   name      String
-  class     String
 
-  @@map("lessons")
+  @@map("works")
 }
